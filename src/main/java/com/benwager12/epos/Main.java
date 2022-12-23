@@ -17,6 +17,8 @@ public class Main extends Application {
 
 		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/cart-view.fxml"));
 		Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+		stage.setMinWidth(615);
+		stage.setMinHeight(430);
 		stage.setTitle("EPOS");
 
 		stage.setScene(scene);

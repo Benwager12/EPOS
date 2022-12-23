@@ -28,4 +28,13 @@ public class Item extends DisplayableObject {
 	public String display() {
 		return getName();
 	}
+
+	@Override
+	public String toString() {
+		return "Item{" +
+				"name='" + name + '\'' +
+				", price=" + price +
+				", description='" + description + '\'' +
+				'}';
+	}
 }

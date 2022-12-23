@@ -12,11 +12,12 @@ public class CartUtilities {
 	public static final String itemListPath = "pages/items.txt";
 
 	/** The current page name. */
-	public static String pageName = "1";
+	public static String pageName = "index.page";
 
 	// Loaded items are either integers or folders.
 	/** The currently loaded displayables. */
 	public static ArrayList<Object> loadedDisplayables = new ArrayList<>();
+	public static ArrayList<Item> basket = new ArrayList<>();
 
 	/** The currently loaded items. */
 	private static ArrayList<Item> itemList;
@@ -29,7 +30,7 @@ public class CartUtilities {
 	 * @return The loaded displayables.
 	 */
 	public static ArrayList<Object> getDisplayablesFromPage(String page) {
-		String items = FileUtilities.loadTextFile("pages/" + page + ".page");
+		String items = FileUtilities.loadTextFile("pages/" + page);
 		assert items != null;
 
 		Stream<String> lines = items.lines();
@@ -128,5 +129,9 @@ public class CartUtilities {
 	 */
 	public static void loadItemList() {
 		loadItemList(itemListPath);
+	}
+
+	public static ArrayList<Item> getLoadedItemList() {
+		return itemList;
 	}
 }

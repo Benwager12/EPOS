@@ -13,29 +13,29 @@
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
-          <Button fx:id="backBtn" mnemonicParsing="false" text="Back" />
-            <Button fx:id="clearBtn" mnemonicParsing="false" text="Clear Cart" />
+          <Button fx:id="backBtn" mnemonicParsing="false" onAction="#onBackBtnPressed" text="Back" />
+            <Button mnemonicParsing="false" onAction="#onClearBtnPressed" text="Clear Cart" />
          </items>
       </ToolBar>
    </top>
    <center>
-      <VBox fx:id="productBox" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="buttonRow1" spacing="30.0" VBox.vgrow="ALWAYS">
+            <HBox spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="product1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="product2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="product3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <HBox fx:id="buttonRow2" spacing="30.0" VBox.vgrow="ALWAYS">
+            <HBox spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="product4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="product5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="product6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" top="10.0" />
@@ -44,11 +44,11 @@
                   <Insets />
                </VBox.margin>
             </HBox>
-            <HBox fx:id="buttonRow3" spacing="30.0" VBox.vgrow="ALWAYS">
+            <HBox spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button fx:id="product7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="product8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="product9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickProduct" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="product9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onProductClick" text="Button" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" top="10.0" />
@@ -60,10 +60,10 @@
    <bottom>
       <BorderPane prefHeight="17.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <right>
-            <Button fx:id="nextPage" alignment="TOP_LEFT" mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER" />
+            <Button fx:id="nextPageBtn" alignment="TOP_LEFT" mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER" />
          </right>
          <left>
-            <Button fx:id="previousPage" alignment="TOP_LEFT" mnemonicParsing="false" text="Previous" BorderPane.alignment="CENTER" />
+            <Button fx:id="previousPageBtn" alignment="TOP_LEFT" mnemonicParsing="false" text="Previous" BorderPane.alignment="CENTER" />
          </left>
          <center>
             <HBox alignment="CENTER" prefHeight="10.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
@@ -87,18 +87,18 @@
    <right>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane hbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+            <ScrollPane hbarPolicy="NEVER" prefHeight="279.0" prefWidth="130.0" VBox.vgrow="ALWAYS">
                <content>
                   <HBox fx:id="productView">
                      <children>
-                        <VBox fx:id="productNameBox" prefHeight="18.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="productNameBox" prefHeight="18.0" prefWidth="71.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="133.0" text="Product" textAlignment="CENTER" underline="true" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="111.0" text="Product" textAlignment="CENTER" underline="true" />
                            </children>
                         </VBox>
-                        <VBox fx:id="productPriceBox" prefWidth="50.0">
+                        <VBox fx:id="productPriceBox" prefHeight="18.0" prefWidth="38.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Price" textAlignment="CENTER" underline="true" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="18.0" prefWidth="24.0" text="Price" textAlignment="CENTER" underline="true" />
                            </children>
                         </VBox>
                         <VBox fx:id="productDeleteBox">

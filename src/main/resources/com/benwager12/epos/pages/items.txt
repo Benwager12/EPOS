@@ -8,3 +8,9 @@ Lettuce;1.02;Quality lettuce
 Onion;0.99;Quality onion
 Parsley;.50;Quality parsley
 Peas;20;Quality peas
+Banana;0.01;Quality bananas
+Apple;0.01;Quality apples
+Orange;0.01;Quality oranges
+Peach;0.01;Quality peaches
+Pear;0.01;Quality pears
+Plum;0.01;Quality plums
