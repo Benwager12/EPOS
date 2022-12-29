@@ -11,4 +11,8 @@ public class AdminViewController {
 	public void onViewPageFilesPressed(ActionEvent ignoredActionEvent) {
 
 	}
+
+	public void mainMenuBtnPressed(ActionEvent ignoredActionEvent) {
+		ViewUtilities.setScene("main-menu-view");
+	}
 }
