@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benwager12.epos.controllers.AdminItemsViewController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button mnemonicParsing="false" onAction="#onAdminMenuPressed" text="Admin Menu" />
+            <Button mnemonicParsing="false" onAction="#onPageViewPressed" text="Page view" />
+        </items>
+      </ToolBar>
+   </top>
+   <center>
+      <TableView fx:id="itemTbl" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn editable="false" prefWidth="75.0" text="Item ID" />
+          <TableColumn onEditCommit="#onItemNameEdit" prefWidth="75.0" sortable="false" text="Item Name" />
+          <TableColumn onEditCommit="#onItemPriceEdit" prefWidth="75.0" sortable="false" text="Item Price" />
+            <TableColumn onEditCommit="#onItemDescriptionEdit" prefWidth="105.20002746582031" sortable="false" text="Item Description" />
+        </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <Button maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#onAddItemPressed" text="Add Item" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>

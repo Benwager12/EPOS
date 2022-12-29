@@ -4,23 +4,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<BorderPane prefWidth="191.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benwager12.epos.controllers.AdminViewController">
+   <center>
+      <VBox alignment="CENTER" prefWidth="191.0" spacing="30.0">
+         <children>
+            <Label text="Admin View">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#onViewItemListPressed" text="View item list">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#onViewPageFilesPressed" text="View page files">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.benwager12.epos.controllers.AdminViewController">
-   <children>
-      <Label text="Admin View">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Button mnemonicParsing="false" onAction="#onViewItemListPressed" text="View item list">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button mnemonicParsing="false" onAction="#onViewPageFilesPressed" text="View page files">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-   </children>
-</VBox>
+   </center>
+</BorderPane>
