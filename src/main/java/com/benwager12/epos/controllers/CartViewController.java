@@ -56,7 +56,7 @@ public class CartViewController {
 
 			Object currentDisplayable;
 			try {
-				currentDisplayable = loadedDisplayables.get(btnNumber);
+				currentDisplayable = loadedDisplayables.get(btnNumber + pageNumber * 9);
 				productButton.setVisible(true);
 			} catch (IndexOutOfBoundsException e) {
 				productButton.setVisible(false);
@@ -72,7 +72,6 @@ public class CartViewController {
 	}
 
 	private void loadPageChangeButtons() {
-
 		previousPageBtn.setVisible(pageNumber != 0);
 		nextPageBtn.setVisible(loadedDisplayables.size() > 9  * (pageNumber + 1));
 	}
@@ -150,5 +149,15 @@ public class CartViewController {
 				}
 			});
 		}
+	}
+
+	public void onNextBtnPressed(ActionEvent ignoredActionEvent) {
+		pageNumber++;
+		loadPage();
+	}
+
+	public void onPrevBtnPressed(ActionEvent ignoredActionEvent) {
+		pageNumber--;
+		loadPage();
 	}
 }
