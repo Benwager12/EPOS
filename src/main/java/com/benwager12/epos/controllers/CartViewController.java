@@ -73,9 +73,9 @@ public class CartViewController {
 
 	private String getBtnText(Object displayable) {
 		if (displayable instanceof Folder f) {
-			return f.getFolderName();
+			return f.folderName();
 		} else if (displayable instanceof Integer i) {
-			return getLoadedItemList().get(i - 1).getName();
+			return getLoadedItemList().get(i - 1).name();
 		}
 		return null;
 	}
@@ -94,7 +94,7 @@ public class CartViewController {
 
 		// If the displayable is a folder, load the folder.
 		if (displayable instanceof Folder f) {
-			CartUtilities.pageName = f.getPagePath();
+			CartUtilities.pageName = f.pagePath();
 			loadPage();
 			// If the displayable is an item, add it to the cart.
 		} else if (displayable instanceof Integer i) {
@@ -128,8 +128,8 @@ public class CartViewController {
 	private void displayBasket() {
 		clearCart();
 		basket.forEach(item -> {
-			productNameBox.getChildren().add(new Label(item.getName()));
-			String formattedPrice = String.format("%.2f", item.getPrice());
+			productNameBox.getChildren().add(new Label(item.name()));
+			String formattedPrice = String.format("%.2f", item.price());
 			productPriceBox.getChildren().add(new Label(formattedPrice));
 			productDeleteBox.getChildren().add(makeDeleteLabel());
 		});
@@ -162,7 +162,7 @@ public class CartViewController {
 	}
 
 	private void updatePrice() {
-		double price = basket.stream().mapToDouble(Item::getPrice).sum();
+		double price = basket.stream().mapToDouble(Item::price).sum();
 		priceLbl.setText(String.format("£%.2f", price));
 	}
 
