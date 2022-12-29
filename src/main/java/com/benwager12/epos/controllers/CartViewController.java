@@ -9,8 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
-
 import static com.benwager12.epos.utilities.CartUtilities.*;
 
 /**
@@ -37,6 +35,7 @@ public class CartViewController {
 	public VBox productPriceBox;
 	public VBox productDeleteBox;
 	public HBox productView;
+	public Label priceLbl;
 
 	private int pageNumber;
 
@@ -49,26 +48,36 @@ public class CartViewController {
 
 		Button[] productButtons = {product1, product2, product3, product4, product5,
 				product6, product7, product8, product9};
-		ArrayList<Item> loadedItems = getLoadedItemList();
 
 		for (int btnNumber = 0; btnNumber < productButtons.length; btnNumber++) {
 			Button productButton = productButtons[btnNumber];
 
-			Object currentDisplayable;
-			try {
-				currentDisplayable = loadedDisplayables.get(btnNumber + pageNumber * 9);
-				productButton.setVisible(true);
-			} catch (IndexOutOfBoundsException e) {
-				productButton.setVisible(false);
+			Object currentDisplayable = getDisplayableFromNumber(btnNumber);
+			productButton.setVisible(currentDisplayable != null);
+
+			if (currentDisplayable == null) {
 				continue;
 			}
 
-			if (currentDisplayable instanceof Folder f) {
-				productButton.setText(f.getFolderName());
-			} else if (currentDisplayable instanceof Integer i) {
-				productButton.setText(loadedItems.get(i - 1).getName());
-			}
+			productButton.setText(getBtnText(currentDisplayable));
 		}
+	}
+
+	private Object getDisplayableFromNumber(int number) {
+		try {
+			return loadedDisplayables.get(number + pageNumber * 9);
+		} catch (IndexOutOfBoundsException e) {
+			return null;
+		}
+	}
+
+	private String getBtnText(Object displayable) {
+		if (displayable instanceof Folder f) {
+			return f.getFolderName();
+		} else if (displayable instanceof Integer i) {
+			return getLoadedItemList().get(i - 1).getName();
+		}
+		return null;
 	}
 
 	private void loadPageChangeButtons() {
@@ -81,13 +90,13 @@ public class CartViewController {
 			return;
 		}
 		int buttonNumber = Integer.parseInt(b.getId().substring(7));
-		System.out.printf("Button number %d was clicked.%n", buttonNumber);
-
 		Object displayable = loadedDisplayables.get(buttonNumber - 1 + (pageNumber * 9));
 
+		// If the displayable is a folder, load the folder.
 		if (displayable instanceof Folder f) {
 			CartUtilities.pageName = f.getPagePath();
 			loadPage();
+			// If the displayable is an item, add it to the cart.
 		} else if (displayable instanceof Integer i) {
 			Item item = getLoadedItemList().get(i - 1);
 			addToBasket(item);
@@ -113,6 +122,7 @@ public class CartViewController {
 	private void addToBasket(Item i) {
 		basket.add(i);
 		displayBasket();
+		updatePrice();
 	}
 
 	private void displayBasket() {
@@ -130,7 +140,6 @@ public class CartViewController {
 		deleteLabel.setOnMouseClicked(mouseEvent -> {
 			int index = productDeleteBox.getChildren().indexOf(deleteLabel);
 			basket.remove(index - 1);
-
 			displayBasket();
 		});
 		return deleteLabel;
@@ -139,6 +148,7 @@ public class CartViewController {
 	public void onClearBtnPressed(ActionEvent ignoredActionEvent) {
 		basket.clear();
 		clearCart();
+		updatePrice();
 	}
 
 	private void clearCart() {
@@ -149,6 +159,11 @@ public class CartViewController {
 				}
 			});
 		}
+	}
+
+	private void updatePrice() {
+		double price = basket.stream().mapToDouble(Item::getPrice).sum();
+		priceLbl.setText(String.format("£%.2f", price));
 	}
 
 	public void onNextBtnPressed(ActionEvent ignoredActionEvent) {

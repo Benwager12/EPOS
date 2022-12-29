@@ -64,7 +64,7 @@
             <HBox alignment="CENTER" prefHeight="10.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="58.0" text="Total:" />
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="77.0" text="0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="priceLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="77.0" text="£0.00" HBox.hgrow="ALWAYS" />
                </children>
                <BorderPane.margin>
                   <Insets />
