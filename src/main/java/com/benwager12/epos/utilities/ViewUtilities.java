@@ -16,9 +16,12 @@ public class ViewUtilities {
 		try {
 			return new Scene(fxmlLoader.load(), 600, 400);
 		} catch (IOException e) {
-			System.out.println("Encountered error loading menu page.");
+			System.out.println("Encountered error loading \""+ fxmlName +"\".");
 			throw new RuntimeException(e);
 		}
 	}
 
+	public static void setScene(String fxmlName) {
+		Main.getStage().setScene(makeScene(fxmlName));
+	}
 }
