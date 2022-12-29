@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="255.0" prefWidth="372.0" spacing="30.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Electronic Point of Sale">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" text="User View">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+      <Button mnemonicParsing="false" text="Admin VIew">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Label text="Made by Benwager12" />
+   </children>
+</VBox>
