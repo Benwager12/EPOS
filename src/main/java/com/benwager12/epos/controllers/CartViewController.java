@@ -3,6 +3,7 @@ package com.benwager12.epos.controllers;
 import com.benwager12.epos.displayable.Folder;
 import com.benwager12.epos.displayable.Item;
 import com.benwager12.epos.utilities.CartUtilities;
+import com.benwager12.epos.utilities.ViewUtilities;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -45,7 +46,6 @@ public class CartViewController {
 	}
 
 	private void loadProductButtons() {
-
 		Button[] productButtons = {product1, product2, product3, product4, product5,
 				product6, product7, product8, product9};
 
@@ -115,8 +115,10 @@ public class CartViewController {
 			loadPage();
 			return;
 		}
-
 		// Go back to the main menu.
+
+		clearCart();
+		ViewUtilities.setScene("main-menu-view");
 	}
 
 	private void addToBasket(Item i) {
