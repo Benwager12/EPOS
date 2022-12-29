@@ -110,8 +110,9 @@ public class CartViewController {
 	}
 
 	public void onBackBtnPressed(ActionEvent ignoredActionEvent) {
-		if (!pageName.equalsIgnoreCase("index.page")) {
+		if (!pageName.equalsIgnoreCase("index.page") || pageNumber != 0) {
 			pageName = "index.page";
+			pageNumber = 0;
 			loadPage();
 			return;
 		}
