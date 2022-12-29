@@ -1,22 +1,20 @@
 package com.benwager12.epos;
 
 import com.benwager12.epos.utilities.CartUtilities;
+import com.benwager12.epos.utilities.ViewUtilities;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Main extends Application {
 
 	@Override
-	public void start(Stage stage) throws IOException {
+	public void start(Stage stage) {
 		CartUtilities.loadItemList();
 		CartUtilities.loadDisplayablesFromPage();
 
-		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/cart-view.fxml"));
-		Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+		Scene scene = ViewUtilities.makeScene("main-menu-view");
+
 		stage.setMinWidth(615);
 		stage.setMinHeight(430);
 		stage.setTitle("EPOS");
