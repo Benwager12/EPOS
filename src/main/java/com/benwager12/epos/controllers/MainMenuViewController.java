@@ -9,6 +9,6 @@ public class MainMenuViewController {
 	}
 
 	public void onAdminViewPressed(ActionEvent ignoredActionEvent) {
-
+		ViewUtilities.setScene("admin-view");
 	}
 }
